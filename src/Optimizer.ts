@@ -12,14 +12,14 @@ import tmp from 'tmp-promise';
 
 const TMP_PATH_PREFIX = 'optmz-';
 
-export type Converter = (input: Buffer, dstPath: string) => Promise<void>;
+type Converter = (input: Buffer, dstPath: string) => Promise<void>;
 
-export interface FormatInfo {
+interface FormatInfo {
   converter: Converter;
   ext: string;
 }
 
-export interface SupportFormats {
+interface SupportFormats {
   jpeg: FormatInfo;
   png: FormatInfo;
   webp: FormatInfo;
