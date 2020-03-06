@@ -9,23 +9,10 @@ import ImageUtils from './utils/ImageUtils';
 import Jp2Convert from './converters/Jp2Convert';
 import GuetzliConvert from './converters/GuetzliConvert';
 import tmp from 'tmp-promise';
+import { SupportFormats, SupportFormat } from './types/SupportFormats';
+import { FormatInfo } from './types/FormatInfo';
 
 const TMP_PATH_PREFIX = 'optmz-';
-
-type Converter = (input: Buffer, dstPath: string) => Promise<void>;
-
-interface FormatInfo {
-  converter: Converter;
-  ext: string;
-}
-
-interface SupportFormats {
-  jpeg: FormatInfo;
-  png: FormatInfo;
-  webp: FormatInfo;
-  jp2: FormatInfo;
-  guetzliJpeg: FormatInfo;
-}
 
 export class ImageOptimizer {
   private static supportFormats: SupportFormats = {
@@ -39,7 +26,8 @@ export class ImageOptimizer {
   private readonly dstFormats: FormatInfo[];
   private readonly dstSizes: ResizeOptions[];
 
-  constructor(srcPath: string, outputFormats: (keyof SupportFormats)[], dstSizes: ResizeOptions[] = []) {
+  constructor(args: { srcPath: string; outputFormats: SupportFormat[]; dstSizes: ResizeOptions[] }) {
+    const { srcPath, outputFormats, dstSizes = [] } = args;
     this.srcPath = srcPath;
     this.dstFormats = [];
     for (const format of outputFormats) {
