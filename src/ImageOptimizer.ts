@@ -27,7 +27,7 @@ interface SupportFormats {
   guetzliJpeg: FormatInfo;
 }
 
-export class Optimizer {
+export class ImageOptimizer {
   private static supportFormats: SupportFormats = {
     jpeg: { converter: JpegConverter({ quality: 84 }), ext: 'jpg' },
     guetzliJpeg: { converter: GuetzliConvert({ quality: 84 }), ext: 'jpg' },
@@ -43,7 +43,7 @@ export class Optimizer {
     this.srcPath = srcPath;
     this.dstFormats = [];
     for (const format of outputFormats) {
-      this.dstFormats.push(Optimizer.supportFormats[format]);
+      this.dstFormats.push(ImageOptimizer.supportFormats[format]);
     }
     this.dstSizes = dstSizes;
   }
