@@ -1,6 +1,3 @@
-import imageminWebp from 'imagemin-webp';
-import fs from 'fs';
-import sharp from 'sharp';
 import gm from 'gm';
 
 const Jp2Convert = (options: { quality: number }) => (input: Buffer, dstPath: string): Promise<void> => {
