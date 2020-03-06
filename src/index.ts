@@ -1,2 +1,2 @@
 export { Optimizer } from './Optimizer';
-export { Size } from './type/Size';
+export { Size } from './types/Size';
