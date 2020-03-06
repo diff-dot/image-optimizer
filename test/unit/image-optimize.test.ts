@@ -13,7 +13,7 @@ describe('optimizer', async () => {
     const optimizer = new ImageOptimizer({
       srcPath: path.resolve(__dirname, 'sample-images/src/1.jpg'),
       outputFormats: ['png', 'jpeg', 'webp', 'jp2'],
-      dstSizes: sizes
+      outputSizes: sizes
     });
     const res = await optimizer.save();
     tmpDstFolder = res.folder;
@@ -25,7 +25,7 @@ describe('optimizer', async () => {
     const optimizer = new ImageOptimizer({
       srcPath: path.resolve(__dirname, 'sample-images/src/1.jpg'),
       outputFormats: ['png', 'jpeg', 'webp', 'jp2'],
-      dstSizes: sizes
+      outputSizes: sizes
     });
 
     const dstFolder = path.resolve(__dirname, 'sample-images/dst');

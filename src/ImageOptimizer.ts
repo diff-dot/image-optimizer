@@ -26,14 +26,14 @@ export class ImageOptimizer {
   private readonly dstFormats: FormatInfo[];
   private readonly dstSizes: ResizeOptions[];
 
-  constructor(args: { srcPath: string; outputFormats: SupportFormat[]; dstSizes: ResizeOptions[] }) {
-    const { srcPath, outputFormats, dstSizes = [] } = args;
+  constructor(args: { srcPath: string; outputFormats: SupportFormat[]; outputSizes: ResizeOptions[] }) {
+    const { srcPath, outputFormats, outputSizes = [] } = args;
     this.srcPath = srcPath;
     this.dstFormats = [];
     for (const format of outputFormats) {
       this.dstFormats.push(ImageOptimizer.supportFormats[format]);
     }
-    this.dstSizes = dstSizes;
+    this.dstSizes = outputSizes;
   }
 
   async save(dstFolder?: string): Promise<{ folder: string; files: string[] }> {
