@@ -19,7 +19,7 @@ export class ImageOptimizer {
     jpeg: { converter: JpegConverter({ quality: 84 }), ext: 'jpg' },
     guetzliJpeg: { converter: GuetzliConvert({ quality: 84 }), ext: 'jpg' },
     png: { converter: PngConverter({ qualityMin: 65, qualityMax: 75 }), ext: 'png' },
-    webp: { converter: WebpConverter({ quality: 75 }), ext: 'wemp' },
+    webp: { converter: WebpConverter({ quality: 75 }), ext: 'webp' },
     jp2: { converter: Jp2Convert({ quality: 75 }), ext: 'jp2' }
   };
   private readonly srcPath: string;
