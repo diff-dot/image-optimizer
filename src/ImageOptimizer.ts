@@ -16,11 +16,11 @@ const TMP_PATH_PREFIX = 'optmz-';
 
 export class ImageOptimizer {
   private static supportFormats: SupportFormats = {
-    jpeg: { converter: JpegConverter({ quality: 84 }), ext: 'jpg' },
-    guetzliJpeg: { converter: GuetzliConvert({ quality: 84 }), ext: 'jpg' },
+    jpeg: { converter: JpegConverter({ quality: 90 }), ext: 'jpg' },
+    guetzliJpeg: { converter: GuetzliConvert({ quality: 90 }), ext: 'jpg' },
     png: { converter: PngConverter({ qualityMin: 65, qualityMax: 75 }), ext: 'png' },
-    webp: { converter: WebpConverter({ quality: 75 }), ext: 'webp' },
-    jp2: { converter: Jp2Convert({ quality: 75 }), ext: 'jp2' }
+    webp: { converter: WebpConverter({ quality: 90 }), ext: 'webp' },
+    jp2: { converter: Jp2Convert({ quality: 85 }), ext: 'jp2' }
   };
   private readonly srcPath: string;
   private readonly dstFormats: FormatInfo[];
@@ -40,7 +40,7 @@ export class ImageOptimizer {
     let source = await promisify(fs.readFile)(this.srcPath);
     const files: string[] = [];
 
-    // 소ㅔ파일 포멧 확인
+    // 소스파일 포멧 확인
     if (!ImageUtils.isJpeg(source)) {
       source = await this.toLossLessJpeg(source);
     }
