@@ -17,15 +17,6 @@
   "author": "DIFF.",
   "license": "ISC",
   "dependencies": {
-    "execa": "^4.0.0",
-    "gm": "^1.23.1",
-    "imagemin-guetzli": "^2.0.0",
-    "imagemin-webp": "^5.1.0",
-    "jpegtran-bin": "^4.0.0",
-    "pngquant-bin": "^5.0.2",
-    "rimraf": "^3.0.2",
-    "sharp": "^0.24.1",
-    "tmp-promise": "^2.0.2",
     "@types/execa": "^2.0.0",
     "@types/gm": "^1.18.7",
     "@types/imagemin-webp": "^5.1.0",
@@ -33,7 +24,16 @@
     "@types/pngquant-bin": "^4.0.0",
     "@types/rimraf": "^2.0.3",
     "@types/sharp": "^0.24.0",
-    "@types/tmp": "^0.1.0"
+    "@types/tmp": "^0.1.0",
+    "execa": "^4.0.0",
+    "gm": "^1.23.1",
+    "imagemin-guetzli": "^2.0.0",
+    "imagemin-webp": "^5.1.0",
+    "jpegtran-bin": "^4.0.0",
+    "pngquant-bin": "^5.0.2",
+    "rimraf": "^3.0.2",
+    "sharp": "^0.25.4",
+    "tmp-promise": "^2.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.7",

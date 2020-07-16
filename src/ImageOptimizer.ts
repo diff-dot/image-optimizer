@@ -18,9 +18,9 @@ export class ImageOptimizer {
   private static supportFormats: SupportFormats = {
     jpeg: { converter: JpegConverter({ quality: 90 }), ext: 'jpg' },
     guetzliJpeg: { converter: GuetzliConvert({ quality: 90 }), ext: 'jpg' },
-    png: { converter: PngConverter({ qualityMin: 65, qualityMax: 75 }), ext: 'png' },
+    png: { converter: PngConverter({ qualityMin: 75, qualityMax: 90 }), ext: 'png' },
     webp: { converter: WebpConverter({ quality: 90 }), ext: 'webp' },
-    jp2: { converter: Jp2Convert({ quality: 85 }), ext: 'jp2' }
+    jp2: { converter: Jp2Convert({ quality: 90 }), ext: 'jp2' }
   };
   private readonly srcPath: string;
   private readonly dstFormats: FormatInfo[];
@@ -103,6 +103,7 @@ export class ImageOptimizer {
   private async resize(src: Buffer, size: ResizeOptions): Promise<Buffer> {
     return new Promise((resolve, reject) => {
       sharp(src)
+        .toFormat('jpeg', { quality: 100 })
         .resize(size)
         .toBuffer()
         .then(res => {
